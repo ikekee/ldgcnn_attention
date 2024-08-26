@@ -1,0 +1,61 @@
+# Link to all settings for ruff - https://docs.astral.sh/ruff/settings
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv"
+]
+
+line-length = 100
+src = ["components", "common"]
+
+[lint]
+select = [
+    "I", # isort
+    "D", # pydocstyle
+    "PL", # Pylint
+]
+
+# Rules which pydocstyle google styleguide ignores (https://www.pydocstyle.org/en/stable/error_codes.html#default-conventions)
+# Added manually according to Google Styleguide
+extend-select = [
+    "D204",
+    "D213",
+    "D215",
+    "D400"
+]
+
+# Settings for pydocstyle
+[lint.pydocstyle]
+convention = "google"
+
+# Settings for isort
+[lint.isort]
+lines-after-imports = 2
+force-single-line = true
+order-by-type = false
+known-local-folder = ["components", "common"]

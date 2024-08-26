@@ -1,0 +1,81 @@
+{
+  "random_seed": 42,
+
+  "dataset_config": {
+    "dataset_to_use": "kitti",
+
+    "shapenet_core": {
+      "category_to_use": null,
+      "dataset_path": "data/shapenet_core"
+    },
+
+    "kitti": {
+      "dataset_path": "data/kitti_360",
+      "processed_dir": "processed_norm_full_step_spt_classes",
+      "to_use_classes_spt": true,
+
+      "train_split": {
+        "cell_split_type": "full_step",
+        "grid_size": 5,
+        "stride": null,
+        "cloud_size_threshold": 1000,
+        "out_cloud_size": 8192
+      },
+      "val_split": {
+        "cell_split_type": "full_step",
+        "grid_size": 5,
+        "stride": null,
+        "cloud_size_threshold": 1000,
+        "out_cloud_size": null
+      }
+    }
+  },
+
+  "train_model_config": {
+    "model_to_use": "ldgat_v1",
+
+    "ldgcnn": {
+      "k": 20,
+      "aggr": "max"
+    },
+
+    "ldgat_v1": {
+      "k": 30,
+      "heads": 6
+    },
+
+    "ldgat_v2": {
+      "k": 30,
+      "heads": 6
+    }
+  },
+  "training_process_config": {
+    "n_epochs": 5,
+    "train_batch_size": 1,
+    "test_batch_size": 1,
+    "dataloader_num_workers": 6,
+
+    "optimizer": "adam",
+    "acc_gradients_iter": null,
+
+    "adam": {
+      "lr": 0.0005,
+      "betas": [0.9, 0.999],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "foreach": null,
+      "maximize": false,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+
+    "lr_scheduler": "step",
+
+    "step": {
+      "step_size": 30,
+      "gamma": 0.5
+    }
+  }
+}
