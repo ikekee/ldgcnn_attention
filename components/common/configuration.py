@@ -110,7 +110,6 @@ class TrainingProcessConfiguration:
         self.train_batch_size = json_data["train_batch_size"]
         self.test_batch_size = json_data["test_batch_size"]
         self.dataloader_num_workers = json_data["dataloader_num_workers"]
-        self.n_iter_no_change = json_data["n_iter_no_change"]
 
         self.optimizer = json_data["optimizer"]
         self.adam_config = json_data["adam"]
