@@ -1,6 +1,8 @@
 # Overview
 This repository contains an implementation of the LDGCNN model ([paper](https://arxiv.org/abs/1904.10014)) with the GATConv Layer ([paper](https://arxiv.org/abs/1710.10903)) and GATv2Conv ([paper](https://arxiv.org/abs/2105.14491)), which replaces the standard GCN layer. </br>
 For simplicity, mentioned models are named as **LDGATv1** and **LDGATv2** accordingly.</br>
+This work is a part of my Master's degree thesis submitted to **Tomsk Polytechnic University**. This project was completed as part of the master's program at the "Computer Science and Engineering" under the supervision of Grigoryev Dmitry.
+
 
 # Model architecture
 Mostly, the model is similar to LDGCNN, but as mentioned above GCN layer was replaced with the GATConv layer. The output of this layer is from multiple attention heads, and because of that in convolution layer additional MLP layer is used.
