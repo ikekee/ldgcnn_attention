@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from typing import Any
 from typing import Dict
@@ -5,12 +6,10 @@ from typing import List
 from typing import Optional
 from typing import Union
 
+import matplotlib.pyplot as plt
 from clearml import Logger
 from clearml import Task
-import matplotlib.pyplot as plt
-
-from clear_ml_secret import CLEAR_ML_KEY
-from clear_ml_secret import CLEAR_ML_SECRET
+from dotenv import load_dotenv
 
 
 class ClearMlRegistrator:
@@ -19,12 +18,13 @@ class ClearMlRegistrator:
                  tags: Optional[List[str]] = None,
                  task_id: Optional[str] = None,
                  config_path: Optional[Union[str, Path]] = None):
+        load_dotenv()
         Task.set_credentials(
             api_host="https://api.clear.ml",
             web_host="https://app.clear.ml",
             files_host="https://files.clear.ml",
-            key=CLEAR_ML_KEY,
-            secret=CLEAR_ML_SECRET
+            key=os.getenv("CLEAR_ML_KEY"),
+            secret=os.getenv("CLEAR_ML_SECRET")
         )
         if task_name is not None and tags is not None:
             self._task = Task.init(project_name='PointClouds',

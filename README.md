@@ -66,8 +66,7 @@ Results with mean metrics:
 
 
 # Running the code
-
-1. Add your ClearML credentials to [clear_ml_secret.py](clear_ml_secret.py) for tracking your experiments. Currently, it doesn't work without ClearML integration.
+1. Create an `.env` file and add two fields - `CLEAR_ML_KEY` and `CLEAR_ML_SECRET` with your ClearML credentials for tracking your experiments. Currently, it doesn't work without ClearML integration.
 2. Next, you need to configure a training process using the configuration file ([train_config.json](train_config.json)): </br>
     Choose the dataset for training in the following section:
     ```
