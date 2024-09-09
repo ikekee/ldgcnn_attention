@@ -69,7 +69,7 @@ Results with mean metrics:
 1. Create an `.env` file and add two fields - `CLEAR_ML_KEY` and `CLEAR_ML_SECRET` with your ClearML credentials for tracking your experiments. Currently, it doesn't work without ClearML integration.
 2. Next, you need to configure a training process using the configuration file ([train_config.json](train_config.json)): </br>
     Choose the dataset for training in the following section:
-    ```
+    ```yaml
     ...
       "dataset_config": {
         "dataset_to_use": "kitti",
@@ -98,7 +98,7 @@ Results with mean metrics:
       - Option `cloud_size_threshold` is responsible for the filtering small tiles. Tiles which are smaller than this threshold will be accumulated with the nearest tile.
       - Option `out_cloud_size` is responsible for the number of points in each tile. If tile is larger than this threshold, it will be downsampled to this number of points.
 4. Then you need to specify which model to use for training in the following section:
-    ```
+    ```yaml
       "train_model_config": {
         "model_to_use": "ldgat_v1",
     ```
